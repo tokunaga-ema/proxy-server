@@ -1,5 +1,5 @@
 const express = require("express")
-const app = express()　
+const app = express()
 const { createProxyMiddleware } = require("http-proxy-middleware") 
 const rateLimit = require("express-rate-limit")
 require("dotenv").config()
@@ -21,7 +21,7 @@ app.use("/corona-tracker-world-data", (req, res, next) => {
         target: process.env.BASE_API_URL_CORONA_WORLD,
         changeOrigin: true,
         pathRewrite: {
-            [`^/corona-tracker-world-data`]: "",
+            [`^"/corona-tracker-world-data`]: "",
         },
     })(req, res, next)
 })
