@@ -16,13 +16,10 @@ app.get("/", (req, res) => {
     res.send("This is my proxy server")
 })
 
-app.use("/corona-tracker-world-data", (req, res, next) => {
+app.use("", (req, res, next) => {
     createProxyMiddleware({
         target: process.env.BASE_API_URL_CORONA_WORLD,
         changeOrigin: true,
-        pathRewrite: {
-            [`^"/corona-tracker-world-data`]: "",
-        },
     })(req, res, next)
 })
 
